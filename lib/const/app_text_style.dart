@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Color defaultColor = Colors.black;
 String fontPoppins = "Poppins";
-
+// SET WEIGHT
 Map<String, dynamic> bold() {
   return {"weight": FontWeight.w700};
 }

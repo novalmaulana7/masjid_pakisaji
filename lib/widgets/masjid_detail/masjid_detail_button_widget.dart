@@ -21,6 +21,10 @@ class MasjidDetailButtonWidget extends StatelessWidget {
           elevation: 0,
           alignment: Alignment.center,
           backgroundColor: whiteColor,
+<<<<<<< HEAD
+=======
+          padding: EdgeInsets.symmetric(horizontal: 20),
+>>>>>>> 6fa1b7b (Initial Commit)
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),

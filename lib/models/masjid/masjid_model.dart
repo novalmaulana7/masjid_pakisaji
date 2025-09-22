@@ -35,7 +35,11 @@ class MasjidModel {
           json['image'] != null
               ? List<String>.from(
                 json['image'],
+<<<<<<< HEAD
               ) // 🔑 Konversi dari List<dynamic>
+=======
+              ) // 🔑 Konversi dari List<String>
+>>>>>>> 6fa1b7b (Initial Commit)
               : [],
       nama: json['nama'],
       alamat: json['alamat'],
