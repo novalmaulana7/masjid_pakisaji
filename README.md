@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # masjid_pakisaji_mobile
 
 A new Flutter project.
