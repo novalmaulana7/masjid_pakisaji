@@ -6,10 +6,7 @@ import 'package:masjid_pakisaji_mobile/const/app_string.dart';
 import 'package:masjid_pakisaji_mobile/const/app_text_style.dart';
 import 'package:masjid_pakisaji_mobile/models/masjid/masjid_model.dart';
 import 'package:masjid_pakisaji_mobile/screens/masjid_detail/masjid_detail_screen.dart';
-<<<<<<< HEAD
-=======
 import 'package:masjid_pakisaji_mobile/utils/format_distancte.dart';
->>>>>>> 6fa1b7b (Initial Commit)
 
 class MasjidListWidget extends StatelessWidget {
   final List<MasjidModel>? dataModel;
@@ -160,15 +157,4 @@ class MasjidListWidget extends StatelessWidget {
       },
     );
   }
-<<<<<<< HEAD
-
-  String formatDistance(double distance) {
-    if (distance >= 1000) {
-      return "${(distance / 1000).toStringAsFixed(2)} km";
-    } else {
-      return "${distance.toStringAsFixed(0)} m";
-    }
-  }
-=======
->>>>>>> 6fa1b7b (Initial Commit)
 }
