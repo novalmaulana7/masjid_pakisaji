@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Color defaultColor = Colors.black;
 String fontPoppins = "Poppins";
+
 // SET WEIGHT
 Map<String, dynamic> bold() {
   return {"weight": FontWeight.w700};
@@ -26,7 +27,6 @@ TextStyle regularHeading({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 20,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -39,7 +39,6 @@ TextStyle regularBody({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 14,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -52,7 +51,6 @@ TextStyle regularCaption({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 10,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -66,7 +64,6 @@ TextStyle mediumHeading({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 20,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -79,7 +76,6 @@ TextStyle mediumBody({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 14,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -92,7 +88,6 @@ TextStyle mediumCaption({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 10,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -106,7 +101,6 @@ TextStyle semiboldHeading({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 20,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -119,7 +113,6 @@ TextStyle semiboldBody({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 14,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -132,7 +125,6 @@ TextStyle semiboldCaption({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 10,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
@@ -146,7 +138,6 @@ TextStyle boldDisplay({Color? color, Map<String, dynamic>? weight}) {
 
   return TextStyle(
     fontSize: 26,
-    letterSpacing: 0.0,
     color: setColor,
     fontWeight: setWeight["weight"],
     fontFamily: 'Poppins',
