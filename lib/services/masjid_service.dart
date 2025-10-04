@@ -15,6 +15,7 @@ class MasjidService {
     return data!.map((e) => MasjidModel.fromJson(e)).toList();
   }
 
+  // Function get masjid by id
   Future<MasjidModel?> getMasjidById(String id) async {
     final masjidList = await getAllMasjid();
     try {

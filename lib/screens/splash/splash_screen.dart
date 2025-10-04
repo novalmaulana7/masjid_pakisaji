@@ -77,7 +77,8 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> initApp() async {
     try {
       // cek & minta izin lokasi saat app start
-      Position position = await LocationService.getUserLocation();
+      Stream<Position> positionInit = await LocationService.getUserLocation();
+      Position position = await positionInit.first;
       log("Lokasi User: ${position.latitude}, ${position.longitude}");
     } catch (e) {
       log("Error lokasi: $e");

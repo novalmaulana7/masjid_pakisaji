@@ -11,8 +11,9 @@ class MasjidDetailButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: mediaWidth(context: context),
+      margin: EdgeInsets.symmetric(horizontal: 20),
       child: ElevatedButton(
         onPressed: () {
           urlLauncher(urlString!);
@@ -21,7 +22,7 @@ class MasjidDetailButtonWidget extends StatelessWidget {
           elevation: 0,
           alignment: Alignment.center,
           backgroundColor: whiteColor,
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(vertical: 10),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),

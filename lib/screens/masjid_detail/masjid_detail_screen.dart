@@ -5,6 +5,7 @@ import 'package:masjid_pakisaji_mobile/const/app_string.dart';
 import 'package:masjid_pakisaji_mobile/const/app_text_style.dart';
 import 'package:masjid_pakisaji_mobile/models/masjid/masjid_model.dart';
 import 'package:masjid_pakisaji_mobile/services/masjid_service.dart';
+import 'package:masjid_pakisaji_mobile/utils/pattern_background.dart';
 import 'package:masjid_pakisaji_mobile/widgets/masjid_detail/masjid_detail_button_widget.dart';
 import 'package:masjid_pakisaji_mobile/widgets/masjid_detail/masjid_detail_carousel_widget.dart';
 import 'package:masjid_pakisaji_mobile/widgets/masjid_detail/masjid_detail_info_widget.dart';
@@ -38,16 +39,22 @@ class _MasjidDetailScreenState extends State<MasjidDetailScreen> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Scaffold(body: Center(child: CircularProgressIndicator()));
-        } else if (snapshot.hasError || !snapshot.hasData) {
+        } else if (snapshot.hasError) {
           return Scaffold(
-            body: Center(
-              child: Text(
-                "Masjid Ada",
-                style: boldDisplay(color: blackColor, weight: bold()),
-              ),
+            body: Stack(
+              children: [
+                patternBackground(),
+
+                Center(
+                  child: Text(
+                    "Tidak Ada Informasi Masjid",
+                    style: boldDisplay(color: blackColor, weight: bold()),
+                  ),
+                ),
+              ],
             ),
           );
-        } else {
+        } else if (snapshot.hasData) {
           final masjidDetail = snapshot.data!;
           return Scaffold(
             backgroundColor: backgroundColor,
@@ -68,42 +75,52 @@ class _MasjidDetailScreenState extends State<MasjidDetailScreen> {
                 style: semiboldHeading(color: blackColor, weight: semibold()),
               ),
             ),
-            body: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  MasjidDetailCarouselWidget(
-                    currentIndex: _currentIndex!,
-                    dataModel: masjidDetail,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        _currentIndex = index;
-                      });
-                    },
+            body: Stack(
+              children: [
+                patternBackground(),
+
+                SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      MasjidDetailCarouselWidget(
+                        currentIndex: _currentIndex!,
+                        dataModel: masjidDetail,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _currentIndex = index;
+                          });
+                        },
+                      ),
+
+                      SizedBox(height: 20),
+
+                      MasjidDetailInfoWidget(dataModel: masjidDetail),
+
+                      SizedBox(height: 20),
+
+                      MasjidDetailMapsWidget(
+                        mapController: _mapController,
+                        latitudeMasjid: masjidDetail.latitude,
+                        longitudeMasjid: masjidDetail.longitude,
+                      ),
+
+                      SizedBox(height: 40),
+
+                      MasjidDetailButtonWidget(urlString: masjidDetail.sumber),
+
+                      SizedBox(height: 10),
+                    ],
                   ),
-
-                  SizedBox(height: 20),
-
-                  MasjidDetailInfoWidget(dataModel: masjidDetail),
-
-                  SizedBox(height: 20),
-
-                  MasjidDetailMapsWidget(
-                    mapController: _mapController,
-                    latitudeMasjid: masjidDetail.latitude,
-                    longitudeMasjid: masjidDetail.longitude,
-                  ),
-
-                  SizedBox(height: 40),
-
-                  MasjidDetailButtonWidget(urlString: masjidDetail.sumber),
-
-                  SizedBox(height: 10),
-                ],
-              ),
+                ),
+              ],
             ),
+          );
+        } else {
+          return Scaffold(
+            body: Stack(children: [patternBackground(), SizedBox()]),
           );
         }
       },

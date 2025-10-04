@@ -22,19 +22,18 @@ class _MasjidScreenState extends State<MasjidScreen> {
   late Future<List<MasjidModel>> futureMasjid;
   double? userLat;
   double? userLon;
-  StreamSubscription<Position>? positionStream;
+  StreamSubscription<Position>? positionSubscription;
 
   @override
   void initState() {
     super.initState();
     futureMasjid = MasjidService().getAllMasjid();
     _getUserLocation();
-    _startLocationStream();
   }
 
   @override
   void dispose() {
-    positionStream?.cancel();
+    positionSubscription?.cancel();
     super.dispose();
   }
 
@@ -96,28 +95,16 @@ class _MasjidScreenState extends State<MasjidScreen> {
 
   Future<void> _getUserLocation() async {
     try {
-      Position position = await LocationService.getUserLocation();
+      Stream<Position> positionStream = await LocationService.getUserLocation();
 
-      setState(() {
-        userLat = position.latitude;
-        userLon = position.longitude;
+      positionSubscription = positionStream.listen((Position position) {
+        setState(() {
+          userLat = position.latitude;
+          userLon = position.longitude;
+        });
       });
     } catch (e) {
       log("Error ambil lokasi: $e");
     }
-  }
-
-  void _startLocationStream() {
-    positionStream = Geolocator.getPositionStream(
-      locationSettings: const LocationSettings(
-        accuracy: LocationAccuracy.high,
-        distanceFilter: 1, // update tiap pindah >= 1 meter
-      ),
-    ).listen((Position position) {
-      setState(() {
-        userLat = position.latitude;
-        userLon = position.longitude;
-      });
-    });
   }
 }
