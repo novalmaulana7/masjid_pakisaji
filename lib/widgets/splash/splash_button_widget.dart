@@ -15,9 +15,7 @@ class SplashButtonWidget extends StatelessWidget {
         onPressed: () {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => MasjidScreen(
-              
-            )),
+            MaterialPageRoute(builder: (context) => MasjidScreen()),
           );
         },
         style: ElevatedButton.styleFrom(
