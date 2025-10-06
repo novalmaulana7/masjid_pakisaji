@@ -6,7 +6,7 @@ import 'package:masjid_pakisaji_mobile/const/app_string.dart';
 import 'package:masjid_pakisaji_mobile/const/app_text_style.dart';
 import 'package:masjid_pakisaji_mobile/models/masjid/masjid_model.dart';
 import 'package:masjid_pakisaji_mobile/screens/masjid_detail/masjid_detail_screen.dart';
-import 'package:masjid_pakisaji_mobile/utils/format_distancte.dart';
+import 'package:masjid_pakisaji_mobile/utils/format_distance.dart';
 
 class MasjidListWidget extends StatelessWidget {
   final List<MasjidModel>? dataModel;
